@@ -1,19 +1,19 @@
-import styles from './ButtonFlix.module.css'
+import styles from './Button.module.css'
 
-function ButtonFlix(props) {
+function Button({ children, bgcolor, onClick }) {
     return  (
-        <button 
-            style={{
-                    backgroundColor: `${props.cor?? '#2A7AE4'}`,
-                    fontSize:  `${props.tamanho}`
-                }} 
-                className={styles.botao}>
-            {props.texto}
+        <div>
+        <button
+          onClick={onClick}
+          className={`${styles.button} ${styles[bgcolor]}`}
+        >
+          {children}
         </button>
+      </div>
     )
 }
 
-export default ButtonFlix
+export default Button
 
 
 

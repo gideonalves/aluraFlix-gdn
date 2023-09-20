@@ -1,3 +1,23 @@
+h1 { 
+    color: var(--color-gray-light);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 54px;
+    text-align: center;
+   }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container__direito {
+    display: flex;
+    gap: 40px;
+}
+
 .input {
     background-color: var(--color-gray-dark);
     border: none;

@@ -3,91 +3,69 @@ import "react-multi-carousel/lib/styles.css";
 
 import styles from "./Slider.module.css";
 
-import videos from 'json/posts.json'
+import videos from "json/posts.json";
+import VideoCard from "../VideoCard";
+
 // import VideoCard from "../VideoCard";
 
-console.log(videos);
-
-
-export default function VideoCarousel() {
+export default function VideoCarousel(categoria) {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 5,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
+      items: 1,
+    },
   };
 
-return (
-    <Carousel className={styles.cardContainer} responsive={responsive}>
-          <div className={styles.card}>item 1</div>
-          <div className={styles.card}>Item 2</div>
-          <div className={styles.card}>Item 3</div>
-          <div className={styles.card}>Item 4</div>
-          <div className={styles.card}>Item 1</div>
-          <div className={styles.card}>Item 2</div>
-          <div className={styles.card}>Item 3</div>
-          <div className={styles.card}>Item 4</div>
+  const videosPorCategoria = videos.filter(video => video.categoryDisplayName === categoria.categoria)
+  return (
 
-          {/* {videos.map((video) => {
-             return (<div className={styles.card}>
-                <VideoCard 
-                key={video.id}
-                videoLink={video.videoImgLink}/>
-              </div>)
-          })}        */}
-    </Carousel>
-)
-}
-
-// import Slider from "react-slick";
-
-// import "slick-carousel/slick/slick.css"; 
-// import "slick-carousel/slick/slick-theme.css";
-// import styles from "./Slider.module.css";
-// import VideoCard from "../VideoCard";
-
-// import posts from 'json/posts.json'
-
-
-// function SimpleSlider() {
-  
-//     const settings = {
-//       className: "center",
-//       centerMode: true,
-//       infinite: true,
-//       centerPadding: "10px",
-//       slidesToShow: 3,
-//       speed: 500,
-//       // arrows: false
+    <Carousel 
+      additionalTransfrom={0}
+      arrows
+      autoPlaySpeed={3000}
+      centerMode={false}
+      className={styles.cardContainer}
+      containerClass="container-with-dots"
+      dotListClass=""
+      draggable
+      focusOnSelect={false}
+      infinite
+      itemClass=""
+      keyBoardControl
+      minimumTouchDrag={80}
+      pauseOnHover
+      renderArrowsWhenDisabled={false}
+      renderButtonGroupOutside={false}
+      renderDotsOutside={false}
+      responsive={responsive}
+    >
+   
+      {videosPorCategoria.map(video => (
+          <div >
+              <VideoCard  className={styles.card}
+                  setId={categoria.setId}
+                  id={video.id}
+                  key={video.id} 
+                  videoCover={video.videoImgLink} 
+                  videoLink={video.videoLink}
+              /> 
+          </div>          
+        ))
+      }
       
-//     };
-//     return (
-//       <div className={styles.carrossel}>
-//         <Slider {...settings}>
-          
-//                 {posts.map((post) => (
-//                     <div key={post.id}>
-//                         <VideoCard post={post} />
-//                     </div>
-//                 )) } 
-                       
-//         </Slider>
-//       </div>
-//     );
-//   }
-
-
-// export default SimpleSlider;
+    </Carousel>
+  );
+}

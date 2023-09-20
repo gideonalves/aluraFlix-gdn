@@ -7,7 +7,7 @@ function Rodape() {
     return  (
         <footer className={styles.rodape}>    
             <Logo />
-                 Desenvolvido por Gideon 2023.
+                © Desenvolvido por Gideon | 2023.
             <Link />                  
         </footer>
     )

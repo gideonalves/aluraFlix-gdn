@@ -1,62 +1,37 @@
-import TituloCategoria from 'components/TituloCategoria';
 import styles from './Inicio.module.css'
 import "react-multi-carousel/lib/styles.css";
 
-import Banner from 'components/Banner';
+import videos from "json/posts.json";
+
+import TituloCategoria from 'components/TituloCategoria';
 import VideoCarousel from 'components/Carrosel/Slider';
-// import SimpleSlider from 'components/Carrosel/Slider';
+import Banner from 'components/Banner';
 
-// import VideoCard from 'components/Carrosel/VideoCard';
 
-// import posts from 'json/posts.json'
 
 function Inicio() {
+    const categoria = Array.from ( new Set(videos.map((video) => video.categoryDisplayName)) )
+
     return (
         <>
-        <Banner imagem="home" />
-        <section className={styles.slidContainer}>
+            <Banner />
+            {categoria.map(c => (
+                <section className={styles.slidContainer}>    
+                    <section className={styles.cardUm}>
+                        <div className={styles.cardDois}>
+                            <TituloCategoria texto={c} tamanho='35px' cor='#69953B'/>
+                            <h2 className={styles.subTitulo}>Formação {c}</h2>
+                        </div>
 
-            <section className={styles.cardUm}>
-                <div className={styles.cardDois}>
-                    <TituloCategoria texto='Front end' tamanho='35px' cor='#69953B'/>
-                    <h2 className={styles.subTitulo}>Formação Front end</h2>
-                </div>
-                
-                {/* <SimpleSlider /> */}
+                    </section>
 
-            </section>
+                    <section className={styles.cardUm}>
+            
+                        <VideoCarousel categoria={c}/>
 
-            <section className={styles.cardUm}>
-                    {/* <ul className={styles.cardDois}>
-                           {posts.map((post) => (
-                               <li key={post.id}>
-                                    <VideoCard post={post} />
-                                </li>
-                           )) } 
-
-                    </ul> */}
-                {/* <SimpleSlider /> */}
-                <VideoCarousel />
-
-            </section>
-
-
-            {/* <section className={styles.cardUm}>
-                <div className={styles.cardDois}>
-                    <TituloCategoria texto='Data Science' tamanho='35px' cor='#69953B'/>
-                    <h2 className={styles.subTitulo}>Formação Data Science na Alura</h2>
-                </div>
-                <SimpleSlider />
-            </section>
-
-            <section className={styles.cardUm}>
-                <div className={styles.cardDois}>
-                    <TituloCategoria texto='Mobile' tamanho='35px' cor='#ffba05'/>
-                    <h2 className={styles.subTitulo}>Formação Mobile da Alura</h2>
-                </div>
-                <SimpleSlider />
-            </section> */}
-        </section>
+                    </section>
+                 </section>
+            ))}
         </>
 
     )

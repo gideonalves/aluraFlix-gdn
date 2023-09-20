@@ -1,7 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import Logo from '../Logo'
 import styles from './Cabecalho.module.css'
-// import Button from 'components/Button'
 
 function Cabecalho() {
     return (
@@ -10,11 +9,9 @@ function Cabecalho() {
                 <Logo />
             </Link>
             <nav>
-                {/* <Button texto="Novo vídeo" /> */}
-                <NavLink to="./novoVideo" className='botaoCabecalho'>
+                <NavLink to="./novoVideo" className={styles.botaoCabecalho}>
                     Novo vídeo
                 </NavLink>
-
             </nav>
         </header>
     )
