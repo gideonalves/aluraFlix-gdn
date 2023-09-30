@@ -1,71 +1,22 @@
 :root {
-  --fonte: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  --color-frontend: #6bd1ff;
+  --color-datascience: #69953b;
+  --color-mobile: #ffba05;
+  --color-backend: #fc4129;
+  --color-gray-light: #f5f5f5;
+  --color-white: #fff;
+  --color-primary: #2a7ae4;
+  --color-gray: #53585d;
+  --color-black: #000;
 
-  --color-primary-medium: #2A7AE4;
+ 
+  color-scheme: light dark;
+  background-color: var(--color-black);
 
-  --color-frontend: #6BD1FF;
-  --color-backend: #69953B;
-  --color-mobile: #FFBA05;
-  --color-ux: #DC6EBE;
-  --color-infra: #9CD33B;
-  --color-marketing: #6B5BE2;
-  --colo-inovation: #FF8C2A;
-  --color-data-science: #9CD33B;
-
-  --color-black-dark: rgba(0, 0, 0, 0.9);
-  --color-black-medium: rgba(0, 0, 0, 0.6);
-  --color-black-light: rgba(0, 0, 0, 0.5);
-  --color-black-lighter: rgba(158, 158, 158, 1);
-
-  --color-gray-dark: #C2C2C2;
-  --color-gray-medium: #E5E5E5;
-  --color-gray-light: #F5F5F5;
-
-  --color-error-dark: #C62828;
-  --color-error-medium: #E53935;
-  --color-error-light: #FCE7E7;
-}
-
-
-body {
-  margin: 0;
-  background-color: var(--color-black-dark); 
-  font-family: var(--fonte);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-.botaoCabecalho {
-  width: 180.13px;
-  height: 54px; 
-  color: var(--color-gray-light);
-  border: 1px solid var(--color-gray-light);
-  border-radius: 5px;
-  background-color: var(--color-black-dark);
-  
-  font-family: var(--fonte);
-  font-size: 1.3125rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.botaoCabecalho:hover {
-  color: var(--color-frontend);
-  border: 1px solid var(--color-frontend);
-  border-radius: 5px;
-  background-color: var(--color-black-medium);
-  transform: scale(1.1);
-  transition: 500ms linear;
-}
-
-@media(max-width: 400px) {
-  .botaoCabecalho {
-     display: none;
-  }
+  -webkit-text-size-adjust: 100%;
 }
